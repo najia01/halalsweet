@@ -1,0 +1,153 @@
+$font-gotham-medium-italic: 'gotham-medium-italic';
+$font-gotham-book: 'Gotham Book';
+$font-Visualist-Demo-Regular: 'VisualistDemoRegular';
+$font-size: 1.2rem;
+$primary: #FC177F;
+$secondary: #FF66C4;
+$purple: #CB6CE6;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.row-limit-size {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+@font-face {
+    font-family: 'gotham-medium-italic';
+    src: url(../fonts/gotham-medium-italic.ttf);
+}
+
+@font-face {
+    font-family: 'gotham-Book';
+    src: url(../fonts/Gotham-Book.otf);
+}
+
+@font-face {
+    font-family: 'VisualistDemoRegular';
+    src: url(../fonts/VisualistDemoRegular.ttf);
+}
+
+// hero parts
+
+.hero {
+    width: 100%;
+
+    .container-hero {
+        .panoramic-image {
+            width: 100%;
+            height: 0;
+            padding-bottom: 40%;
+            position: relative;
+            overflow: hidden;
+
+            .imgHero {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                top: 0;
+                left: 0;
+            }
+        }
+
+        .overlay {
+            position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+
+            .textHero {
+                color: white;
+                font-size: 2.5rem;
+                font-weight: bold;
+                line-height: 1.5;
+                margin: 0;
+                font-family: $font-gotham-medium-italic;
+            }
+        }
+    }
+}
+
+//   news section 
+.news {
+
+    min-height: 500px;
+    display: grid;
+    place-content: center;
+    overflow: hidden;
+
+    .titleNews {
+        width: 100%;
+        margin-bottom: 100px;
+        font-size: 1.8rem;
+        font-family: $font-Visualist-Demo-Regular;
+        text-align: center;
+        color: $primary;
+    }
+
+    .container-slider-news {
+        --s: 150px;
+
+        display: grid;
+        transform-style: preserve-3d;
+        animation: r 25s linear infinite;
+        position: relative;
+
+        @keyframes r {
+            0% {
+                transform: perspective(450px) rotateX(-100deg) rotate(0deg);
+            }
+
+            to {
+                transform: perspective(450px) rotateX(-100deg) rotate(-360deg);
+            }
+        }
+
+        >img {
+            grid-area: 1/1;
+            width: var(--s);
+            aspect-ratio: 1;
+            object-fit: cover;
+            border-radius: 10px 10px 0 0;
+            transform: rotate(var(--_a)) translateY(120%) rotateX(90deg);
+        }
+
+        >img:nth-child(1) {
+            --_a: 0deg;
+        }
+
+        >img:nth-child(2) {
+            --_a: 60deg;
+        }
+
+        >img:nth-child(3) {
+            --_a: 120deg;
+        }
+
+        >img:nth-child(4) {
+            --_a: 180deg;
+        }
+
+        >img:nth-child(5) {
+            --_a: 240deg;
+        }
+
+        >img:nth-child(6) {
+            --_a: 300deg;
+        }
+
+        &::before {
+            content: "";
+            position: absolute;
+            inset: -100%;
+
+            transform: translateZ(calc(var(--s)/2)) rotate(90deg);
+        }
+    }
+}

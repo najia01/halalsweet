@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HalalSweetShop{% endblock %}
+
+{% block body %}
+  {% include 'header.html.twig' %}
+		
+  <section class="hero">
+    <div class="container-hero">
+      <div class="panoramic-image">
+        <img class="imgHero" src="{{ asset('img/hero.jpg') }}" alt="cadre de bonbons">
+      </div>
+       <div class="overlay">
+        <p class="textHero">Découvrez la douceur pure à chaque bouchée!</p>
+      </div>
+    </div>
+  </section>
+  <section class="news">
+  <h1 class="titleNews">Les nouveautes</h1>
+  <div class="container-slider-news">
+   <img  src="{{ asset('img/logo1.png') }}" alt="logo">
+   <img src="{{ asset('img/logo1.png') }}" alt="logo">
+   <img  src="{{ asset('img/logo1.png') }}" alt="logo">
+   <img src="{{ asset('img/logo1.png') }}" alt="logo">
+   <img  src="{{ asset('img/logo1.png') }}" alt="logo">
+   <img  src="{{ asset('img/logo1.png') }}" alt="logo">
+  
+  
+  
+  
+  </div>
+  
+  
+  
+  
+  </section>
+
+  {% include 'footer.html.twig' %}
+{% endblock %}
